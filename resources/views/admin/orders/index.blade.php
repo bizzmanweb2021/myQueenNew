@@ -91,7 +91,7 @@
                                 <thead>
                                     <tr>
                                         <th>Order Id</th>
-                                        <th>Customer Name</th>
+                                        <th>Customer_Name</th>
                                         <th>Total_Amount</th>
                                         <th>Discount Amount</th>
                                         <th>Shipping Charge</th>
