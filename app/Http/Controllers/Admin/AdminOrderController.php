@@ -248,7 +248,8 @@ class AdminOrderController extends Controller
         }
         if ($request->update_self_pick_order_status == 1) {
             Order::where('id', $request->order_id)->update([
-                'self_pick_order_status' => $request->status_id
+                'self_pick_order_status' => $request->status_id,
+                'status_id' => $request->status_id
             ]);
 
             if ($request->status_id == 5) {
@@ -264,8 +265,8 @@ class AdminOrderController extends Controller
 
 
         if ($request->update_order_status == 1) {
-            Order::where('id', $request->order_id)->update([
-                'status_id' => $request->status_id
+            //Order::where('id', $request->order_id)->update([
+             //   'status_id' => $request->status_id
             ]);
 
             // remove item from stock
