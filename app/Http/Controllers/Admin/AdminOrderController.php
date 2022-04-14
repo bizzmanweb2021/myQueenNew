@@ -51,7 +51,7 @@ class AdminOrderController extends Controller
             'orders.payment_status',
             'orders.status_id',
             'status.name as status',
-            'user.name as customername',
+            'user.name as customer_name',
             'orders.created_at as date'
         )
             ->leftjoin('order_statuses as status', 'orders.status_id', '=', 'status.id')
@@ -79,7 +79,7 @@ class AdminOrderController extends Controller
             'orders.payment_status',
             'orders.status_id',
             'status.name as status',
-            'user.name as customername',
+            'user.name as customer_name',
             'orders.created_at as date'
         )
             ->leftjoin('order_statuses as status', 'orders.status_id', '=', 'status.id')
