@@ -185,7 +185,7 @@
             type: 'GET',
             dataType: 'json',
             success: function(response) {
-                if (total >= response.points) {
+                if (500 >= response.points) {
                     // console.log('success');
                 } else {
                     window.location.href = '/mlm-user/membership';
