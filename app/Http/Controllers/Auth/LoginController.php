@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'mlm-user/dashboard';
+    protected $redirectTo = 'mlm-user/membership';
 
     /**
      * Create a new controller instance.
