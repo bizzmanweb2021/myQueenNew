@@ -55,17 +55,17 @@
                             <span>Call us: </span>+6567219257
                         </a>
                         @auth
-                            <a href="#" class="wishlist"><i
+                            <a href="{{ URL::signedRoute('users.wishlist.index') }}" class="wishlist"><i
                                     class="d-icon-heart"></i>Wishlist</a>
                             <div class="dropdown ml-5">
                                 <a href="#"><i class="d-icon-user"></i> &nbsp;
                                     My
                                     Account</a>
                                 <ul class="dropdown-box">
-                                    <li><a href="{{ URl::signedRoute('users.profile.index') }}">Profile</a></li>
+                                    <li><a href="{{ URL::signedRoute('users.profile.index') }}">Profile</a></li>
                                     <li><a href="{{ URL::signedRoute('MLM.tree.index') }}">Affilate Marketing</a></li>
                                     <li><a href="{{ route('Referal') }}">Refer to friend</a></li>
-                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="{{ route('users.purchase_history.index') }}">Order History</a></li>
                                     <li><a href="{{ URL::signedRoute('users.show_wallet_page') }}">Credit Wallet</a></li>
                                     <li><a href="{{ URL::signedRoute('users.show_royalty') }}">Credit Point Wallet </a></li>
                                     <li>

@@ -182,10 +182,10 @@
         });
         $.ajax({
             url: '/mlm-user/check-point/',
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             success: function(response) {
-                if (500 >= response.points) {
+                if (500 <= response.points) {
                     // console.log('success');
                 } else {
                     window.location.href = '/mlm-user/membership';

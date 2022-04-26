@@ -49,19 +49,17 @@
                             <span>Call us: </span>0(800) 123-456
                         </a>
                         @auth
-                        <a href="#" class="wishlist"><i class="d-icon-heart"></i>Wishlist</a>
+                        <a href="{{ URL::signedRoute('users.wishlist.index') }}" class="wishlist"><i class="d-icon-heart"></i>Wishlist</a>
                         <div class="dropdown ml-5">
                             <a href="" class="" target="_blank"><i class="d-icon-user"></i> &nbsp; My Account</a>
                             <ul class="dropdown-box">
                                 <li><a href="{{ URL::signedRoute('users.profile.index') }}">Profile</a></li>
                                 <li><a href="{{ URL::signedRoute('MLM.tree.index') }}">Affilate Marketing</a></li>
                                 <li><a href="{{ route('Referal') }}">Refer to friend</a></li>
-                                <li><a href="">Order History</a></li>
-                                <li><a href="">Credit Wallet</a></li>
-                                <li><a href="">Royality Point Wallet </a></li>
-                                <li><a href="">Referal Tree</a></li>
-                                <li><a href="">Promotion</a></li>
-								<li>
+                                <li><a href="{{ route('users.purchase_history.index') }}">Order History</a></li>
+                                <li><a href="{{ URL::signedRoute('users.show_wallet_page') }}">Credit Wallet</a></li>
+                                <li><a href="{{ URL::signedRoute('users.show_royalty') }}">Credit Point Wallet </a></li>
+                                <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

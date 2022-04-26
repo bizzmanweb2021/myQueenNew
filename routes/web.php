@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\AdminMatchingBonusController;
 use App\Http\Controllers\Admin\AdminDirectSponserController;
 use App\Http\Controllers\Admin\AdminLeadershipBonusController;
 use App\Http\Controllers\Admin\AdminWithDrawController;
+use App\Http\Controllers\Admin\AdminInvoiceController;
 use Laravel\SerializableClosure\Serializers\Signed;
 use App\Http\Controllers\MLM\MLMTreeController;
 use App\Http\Controllers\MLM\MLMDirectBonus;
@@ -40,6 +41,9 @@ use App\Http\Controllers\MLM\MLMWithDrawController;
 use App\Http\Controllers\MLM\MLMLoyalityPointsContoller;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\UserWalletController;
+use App\Http\Controllers\User\UserPurchaseHistoryController;
+use App\Http\Controllers\User\UserWishlistController;
+use App\Http\Controllers\User\UserProductsController;
 use Illuminate\Support\Facades\URL;
 /*
 
@@ -66,6 +70,9 @@ Route::post('admin/login', [AdminAuthController::class, 'store'])->name('admin.l
 
 
 Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
+    Route::resource('/Dashboard', AdminController::class)->names([
+        'index' => 'dashboard.index'
+    ]);
     Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 });
 
@@ -100,7 +107,7 @@ Route::prefix('mlm-user')->middleware('auth')->group(function () {
     Route::get('/referal', [MlmUserController::class, 'sendmailview'])->name('Referal');
     Route::post('/share-referal', [MlmUserController::class, 'mailsend'])->name('Share-Referal');
 
-    Route::get('/check-point',[MlmUserController::class,'checkPoint']);
+    Route::post('/check-point',[MlmUserController::class,'checkPoint']);
 
     Route::get('/get_placement', [MlmUserController::class, 'get_placement'])->name('get_placement');
     Route::get('/get_placement_id', [MlmUserController::class, 'get_placement_id'])->name('get_placement_id');
@@ -220,12 +227,37 @@ Route::middleware('auth')->name('users.')->group(function () {
     Route::post('get_qr_code_for_wallet', [UserWalletController::class, 'get_qr_code_for_wallet'])->name('get_qr_code_for_wallet')->middleware('signed');
     Route::post('store_wallet_payment', [UserWalletController::class, 'store_wallet_payment'])->name('store_wallet_payment')->middleware('signed');
     Route::get('get_all_payment', [UserWalletController::class, 'get_all_payment'])->name('get_all_payment')->middleware('signed');
+	
+	Route::get('purchase_history', [UserPurchaseHistoryController::class, 'index'])->name('purchase_history.index');
+    Route::resource('shoW_purchase_history', UserPurchaseHistoryController::class)->names([
+        'show' => 'purchase_history.show'
+    ])->middleware('signed');
+	
+	Route::resource('invoice', AdminInvoiceController::class)->names([
+    'show' => 'invoice.show'
+     ]);
+	 
+	 Route::resource('whishlist', UserWishlistController::class)->names([
+        'index'   => 'wishlist.index',
+        'store'   => 'wishlist.store',
+        'create'  => 'wishlist.create'
+    ])->middleware('signed');
 
+    Route::get('/product-details/{id}', [UserProductsController::class, 'show'])->name('product_details.show')->middleware(['signed', 'LangSwitch']);
+Route::get('/product_details', [UserProductsController::class, 'index'])->name('product_details.index');
+Route::post('get_product_details', [UserProductsController::class, 'create'])->name('product_details.create')->middleware(['signed', 'LangSwitch']);
+Route::get('/show_product_rating', [UserProductsController::class, 'show_product_rating'])->name('product_details.show_product_rating');
+
+Route::post('store_contact', [UserWelcomeController::class, 'store_contact_us'])->name('store_contact_us');
+
+Route::middleware(['auth', 'LangSwitch'])->name('users.')->group(function () {
+    Route::resource('product-details', UserProductsController::class)->names([
+        'store' => 'product_details.rating.store'
+    ])->middleware('signed');
+});
 });
  // invoice
- Route::resource('invoice', AdminInvoiceController::class)->names([
-    'show' => 'invoice.show'
-]);
+ 
 // end invoice
 
 
@@ -465,6 +497,10 @@ Route::middleware('auth')->name('users.')->group(function () {
         'index'  => 'withdrawbonus.index',
         'create' => 'withdrawbonus.create'
     ]);	
+	
+	Route::resource('invoice', AdminInvoiceController::class)->names([
+        'show' => 'invoice.show'
+    ]);
 	// end withdraw bonus
 	});
 

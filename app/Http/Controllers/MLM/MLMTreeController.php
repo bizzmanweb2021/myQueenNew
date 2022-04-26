@@ -128,7 +128,7 @@ class MLMTreeController extends Controller
                     'img'       => Auth::user()->image == null ?  asset('asset/image/icon/user.png') : asset(Auth::user()->image),
                     'title'     => $ranking->type,
                     // 'title'     => Auth::user()->unique_id,
-                    'tag'       => $mlm->placement,
+                    //'tag'       => $mlm->placement,
                     'direct_id' => Auth::user()->unique_id
                 ];
             }

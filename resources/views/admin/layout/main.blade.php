@@ -91,11 +91,11 @@
     </div>
     @yield('content')
 
-   //<footer class="main-footer">
-       //<strong>Copyright &copy;2021 <a href=" " target="_blank"> Devoloped By
-         //       BizzmanWeb</a>.</strong>
-        //All rights reserved.
-    //</footer>
+    <footer class="main-footer">
+        <strong>Copyright &copy;2021 <a href=" " target="_blank"> Devoloped By
+                BizzmanWeb</a>.</strong>
+        All rights reserved.
+    </footer>
     <aside class="control-sidebar control-sidebar-dark">
     </aside>
 </body>
