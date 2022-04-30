@@ -153,7 +153,7 @@
                         <nav class="main-nav mr-4">
                             <ul class="menu menu-active-underline">
                                 <li class="active">
-                                    <a href="#">Home</a>
+                                    <a href="{{url('/')}}">Home</a>
                                 </li>
                                 <li class="#">
                                     <a href="#">Promotion</a>
@@ -228,10 +228,10 @@
                                         <h4 class="widget-title">About Us</h4>
                                         <ul class="widget-body">
                                             <li>
-                                                <a href="#">About Us</a>
+                                                <a href="{{url('/')}}">About Us</a>
                                             </li>
                                             <li>
-                                                <a href="#">Contact Us</a>
+                                                <a href="{{url('/contact')}}">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -333,27 +333,27 @@
             <!-- End Search Form -->
             <ul class="mobile-menu mmenu-anim">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                 </li>
                 <li>
-                    <a href="about-us.html">About</a>
+                    <a href="{{ url('/about') }}">About</a>
                 </li>
 
                 <li>
                     <a href="#">Products</a>
                     <ul>
-                        <li><a href="product-details.html">MQ Freckle Essence</a></li>
-                        <li><a href="product-details.html">MQ Anti-Blue Light Exquisite Spray</a></li>
-                        <li><a href="product-details.html">Coconut Oil Amino Acid Facial Cleanser</a></li>
-                        <li><a href="product-details.html">MQ Avocado Neckline Repair Message Cream</a></li>
-                        <li><a href="product-details.html">MQ Medical Mask</a></li>
+                        <li><a href="{{url('products')}}">MQ Freckle Essence</a></li>
+                        <li><a href="{{url('products')}}">MQ Anti-Blue Light Exquisite Spray</a></li>
+                        <li><a href="{{url('products')}}">Coconut Oil Amino Acid Facial Cleanser</a></li>
+                        <li><a href="{{url('products')}}">MQ Avocado Neckline Repair Message Cream</a></li>
+                        <li><a href="{{url('products')}}">MQ Medical Mask</a></li>
 
                     </ul>
                 </li>
 
 
                 <li>
-                    <a href="contact-us.html">Contact </a>
+                    <a href="{{url('/contact')}}">Contact </a>
                 </li>
 
             </ul>

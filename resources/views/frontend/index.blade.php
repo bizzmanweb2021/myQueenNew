@@ -148,31 +148,31 @@
             </form>
             <!-- End of Search Form -->
             <ul class="mobile-menu mmenu-anim">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about-us.html">About</a>
-                </li>
-               
-                <li>
-                    <a href="#">Products</a>
-                    <ul>
-                        <li><a href="{{url('products')}}">MQ Freckle Essence</a></li>
-                        <li><a href="{{url('products')}}">MQ Anti-Blue Light Exquisite Spray</a></li>
-                        <li><a href="{{url('products')}}">Coconut Oil Amino Acid Facial Cleanser</a></li>
-                        <li><a href="{{url('products')}}">MQ Avocado Neckline Repair Message Cream</a></li>
-                        <li><a href="{{url('products')}}">MQ Medical Mask</a></li>
-                        
-                    </ul>
-                </li>
-              
-             
-                <li>
-                    <a href="contact-us.html">Contact </a>
-                </li>
-                
-            </ul>
+            <li>
+                <a href="{{url('/')}}">Home</a>
+            </li>
+            <li>
+                <a href="{{ url('/about') }}">About</a>
+            </li>
+           
+            <li>
+                <a href="#">Products</a>
+                <ul>
+                    <li><a href="{{url('/products')}}">MQ Freckle Essence</a></li>
+                    <li><a href="{{url('/products')}}">MQ Anti-Blue Light Exquisite Spray</a></li>
+                    <li><a href="{{url('/products')}}">Coconut Oil Amino Acid Facial Cleanser</a></li>
+                    <li><a href="{{url('/products')}}">MQ Avocado Neckline Repair Message Cream</a></li>
+                    <li><a href="{{url('/products')}}">MQ Medical Mask</a></li>
+                    
+                </ul>
+            </li>
+          
+         
+            <li>
+                <a href="{{url('/contact')}}">Contact </a>
+            </li>
+            
+        </ul>
         </div>
     </div>
 

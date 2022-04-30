@@ -51,7 +51,7 @@
                         @auth
                         <a href="{{ URL::signedRoute('users.wishlist.index') }}" class="wishlist"><i class="d-icon-heart"></i>Wishlist</a>
                         <div class="dropdown ml-5">
-                            <a href="" class="" target="_blank"><i class="d-icon-user"></i> &nbsp; My Account</a>
+                            <a href="#"><i class="d-icon-user"></i> &nbsp; My Account</a>
                             <ul class="dropdown-box">
                                 <li><a href="{{ URL::signedRoute('users.profile.index') }}">Profile</a></li>
                                 <li><a href="{{ URL::signedRoute('MLM.tree.index') }}">Affilate Marketing</a></li>
