@@ -70,9 +70,6 @@ Route::post('admin/login', [AdminAuthController::class, 'store'])->name('admin.l
 
 
 Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
-    Route::resource('/Dashboard', AdminController::class)->names([
-        'index' => 'dashboard.index'
-    ]);
     Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 });
 
@@ -107,7 +104,7 @@ Route::prefix('mlm-user')->middleware('auth')->group(function () {
     Route::get('/referal', [MlmUserController::class, 'sendmailview'])->name('Referal');
     Route::post('/share-referal', [MlmUserController::class, 'mailsend'])->name('Share-Referal');
 
-    Route::post('/check-point',[MlmUserController::class,'checkPoint']);
+    Route::get('/check-point',[MlmUserController::class,'checkPoint']);
 
     Route::get('/get_placement', [MlmUserController::class, 'get_placement'])->name('get_placement');
     Route::get('/get_placement_id', [MlmUserController::class, 'get_placement_id'])->name('get_placement_id');
@@ -232,6 +229,11 @@ Route::middleware('auth')->name('users.')->group(function () {
     Route::resource('shoW_purchase_history', UserPurchaseHistoryController::class)->names([
         'show' => 'purchase_history.show'
     ])->middleware('signed');
+	
+	Route::get('/get_all_product', [UserWelcomeController::class, 'get_all_product'])->name('all_product')->middleware(['LangSwitch', 'signed']);
+	Route::get('/product_details', [UserProductsController::class, 'index'])->name('product_details.index');
+Route::post('get_product_details', [UserProductsController::class, 'create'])->name('product_details.create')->middleware(['signed', 'LangSwitch']);
+Route::get('/show_product_rating', [UserProductsController::class, 'show_product_rating'])->name('product_details.show_product_rating');
 	
 	Route::resource('invoice', AdminInvoiceController::class)->names([
     'show' => 'invoice.show'
